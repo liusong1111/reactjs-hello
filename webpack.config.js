@@ -1,11 +1,11 @@
 module.exports = {
-  entry:[
-    './main.jsx'
-  ],
+  entry: {
+    bundle: "./main.jsx"
+  },
   output: {
     path: __dirname + '/assets/',
     publicPath: "/assets/",
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
 module: {
   loaders: [
