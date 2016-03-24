@@ -5,7 +5,8 @@ import styles1 from "./hello2.css";
 import Window from './Window.jsx'
 import Box from './Box.jsx'
 
+import MyResume from './MyResume.jsx'
 ReactDOM.render(
-  <div><Window /> :: <Box /></div>,
+  (<MyResume />),
   document.getElementById('example')
 );

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/** common.css **/
+/* CSS Document */
+*{ margin:0px; padding:0px;}
+ul,li,ol,h1,h2,h3,h4,h5,h6{ margin:0px; padding:0px;}
+ul,li,ol{ list-style:none}
+a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+.clear{ clear:both;}
+img{ border:none;}
+button,input,select,textarea,option{font-size:100%;outline:none}
+dl,dt,dd,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,p,a,div,br,span,input,textarea,usermap,area,map{margin:0;padding:0;border:0;list-style:none;outline:none;}
+textarea{resize:none;}
+table{border-collapse:collapse;border-spacing:0;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{zoom:1;}
+
+body{ font-size:12px; background:#f5f5f5; font-family:"微软雅黑"}
+.content{ min-width:1000px; max-width:1200px; margin:0px auto; height:auto; overflow:hidden; margin-top:11px;}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#main {
+  background-color: #fff;
+}
