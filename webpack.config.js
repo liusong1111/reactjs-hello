@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    bundle: "./main.jsx"
+    bundle: ["babel-polyfill", "./main.jsx"]
   },
   output: {
     path: __dirname + '/assets/',
@@ -13,7 +13,7 @@ module: {
       loader: 'babel-loader',
       exclude: /node_modules/,
       query: {
-        presets: ['es2015', 'react']
+        presets: ['es2015', 'react', 'stage-3']
       }},
     { test: /\.css$/, loader: "style-loader!css-loader?modules&sourceMap&localIdentName=[path]___[name]__[local]___[hash:base64:5]" }
   ]

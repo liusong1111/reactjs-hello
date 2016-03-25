@@ -1,7 +1,8 @@
 import React from 'react'
 import _ from 'lodash-contrib'
 import styles from './Expectation.css'
-
+// http://www.freekeer.com/freekeer/rest/freekeers/queryresumebasic
+// accToken:C-eba74e2457d90bbc496e5834f4e67f851000004
 export default class Expectation extends React.Component {
   constructor(props) {
     super(props)
@@ -9,6 +10,7 @@ export default class Expectation extends React.Component {
     this.state = {
       mode: 'show'
     }
+    this.loadData()
   }
 
   render() {
@@ -18,7 +20,6 @@ export default class Expectation extends React.Component {
     } else {
       return this.renderEdit()
     }
-
   }
 
   renderShow() {
@@ -42,7 +43,7 @@ export default class Expectation extends React.Component {
       <div className={styles.showBody}>
         {parts}
         &nbsp;&nbsp;
-        <a className={styles.editButton} onClick={this.changeToEditMode.bind(this)}><i className="fa fa-edit"></i></a>
+        <a className={styles.editButton} onClick={this.changeToEditMode.bind(this)}><i className="fa fa-edit"></i>编辑</a>
       </div>
     </div>)
   }
@@ -101,5 +102,15 @@ export default class Expectation extends React.Component {
 
   changeToShowMode() {
     this.setState({mode: 'show'})
+  }
+
+  async loadData() {
+    let response = await fetch("http://www.freekeer.com/freekeer/rest/freekeers/queryresumebasic", {
+      headers: {
+        'accToken': 'C-eba74e2457d90bbc496e5834f4e67f851000004'
+      }
+    });
+    let obj = await response.json()
+    console.log(obj)
   }
 }
