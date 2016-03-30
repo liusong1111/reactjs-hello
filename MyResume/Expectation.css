@@ -52,6 +52,11 @@
     margin-top: 17px;
 }
 
+.fullField {
+    composes: field;
+    width: 100%;
+}
+
 .label {
     color: #383838;
     text-align: right;

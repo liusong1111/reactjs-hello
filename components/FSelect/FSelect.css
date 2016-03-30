@@ -2,8 +2,10 @@
     width: 13em;
     vertical-align: middle;
     display: inline-block;
+    line-height: 1.4em;
 }
-:global .Select, :global .Select-control, :global .Select-input{
+
+:global .Select, :global .Select-control, :global .Select-input {
     height: 28px;
 }
 
@@ -11,7 +13,7 @@
     border-radius: 0;
 }
 
-:global .Select-placeholder,:global :not(.Select--multi) > .Select-control .Select-value  {
+:global .Select-placeholder, :global :not(.Select--multi) > .Select-control .Select-value {
     line-height: 28px;
 }
 

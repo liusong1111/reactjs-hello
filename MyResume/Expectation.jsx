@@ -92,7 +92,7 @@ export default class Expectation extends React.Component {
                      valueKey={"id"}
                      value={this.state.toptechValue}
                      onChange={this.handleSelectToptechValue.bind(this)}
-                     placeholder="请选择职位类型" />
+                     placeholder="请选择职位类型"/>
           </div>
           <div className={styles.field}>
             <label className={styles.label}>职位名称：</label>
@@ -102,7 +102,7 @@ export default class Expectation extends React.Component {
                      valueKey={"id"}
                      value={this.state.childtechValue}
                      onChange={this.handleSelectChildtechValue.bind(this)}
-                     placeholder="请选择职位名称" />
+                     placeholder="请选择职位名称"/>
           </div>
           <div className={styles.field}>
             <label className={styles.label}>最低日薪：</label>
@@ -110,9 +110,13 @@ export default class Expectation extends React.Component {
           </div>
           <div className={styles.field}>
             <label className={styles.label}>到岗时间：</label>
-            <input type="text" className={styles.input}/>
+            <FSelect name="childtechValue"
+                     options={[{value:'随时到岗', label: '随时到岗'}, {value: '月内到岗', label: '月内到岗'}, {value: '考虑机会', label: '考虑机会'}, {value:'暂不考虑', label: '暂不考虑'}]}
+                     value={this.state.atDate}
+                     onChange={newValue => this.setState({atDate: newValue})}
+                     placeholder="请选择到岗时间"/>
           </div>
-          <div className={styles.field}>
+          <div className={styles.fullField}>
             <label className={styles.label}>工作地：</label>
             <input type="text" className={styles.input}/>
           </div>
