@@ -50,6 +50,10 @@ export default class Expectation extends React.Component {
     </div>)
   }
 
+  handleSelectOne(newValue) {
+    this.setState({zhiwei: newValue})
+  }
+
   renderEdit() {
     var data = {
       toptechValue: '企业应用-Oracle顾问',
@@ -71,7 +75,7 @@ export default class Expectation extends React.Component {
         <form action="" method="post">
           <div className={styles.field}>
             <label className={styles.label}>职位类型：</label>
-            <FSelect name="zhiwei" options={options} searchable={false} placeholder="请选择技能类型" />
+            <FSelect name="zhiwei" options={options} value={this.state.zhiwei} onChange={this.handleSelectOne.bind(this)} placeholder="请选择技能类型" />
           </div>
           <div className={styles.field}>
             <label className={styles.label}>职位名称：</label>
