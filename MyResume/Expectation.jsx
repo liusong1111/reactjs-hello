@@ -3,6 +3,7 @@ import _ from 'lodash-contrib'
 import styles from './Expectation.css'
 
 import FSelect from '../components/FSelect/FSelect.jsx'
+import FFlatSelect from '../components/FFlatSelect/FFlatSelect.jsx'
 // http://www.freekeer.com/freekeer/rest/freekeers/queryresumebasic
 // accToken:C-eba74e2457d90bbc496e5834f4e67f851000004
 export default class Expectation extends React.Component {
@@ -66,6 +67,10 @@ export default class Expectation extends React.Component {
     this.setState({allTech})
   }
 
+  handlePopupSelectProvince(event) {
+    console.log(event);
+  }
+
   renderEdit() {
     var data = {
       toptechValue: '企业应用-Oracle顾问',
@@ -73,6 +78,10 @@ export default class Expectation extends React.Component {
       expectSalary: '5000',
       cityValue: '北京'
     };
+    const provinces = "北京 安徽 福建 甘肃 广东 广西 贵州 海南 河北 河南 黑龙江 湖北 湖南 吉林 江苏 江西 辽宁 内蒙古 宁夏 青海 山东 山西 陕西 上海 四川 天津 西藏 新疆 云南 浙江 重庆 香港 澳门 台湾".split(' ').map(p => ({
+      value: p,
+      label: p
+    }))
 
     var parts = ['toptechValue', 'childtechValue', 'expectSalary', 'cityValue'].map(attr => data[attr] ?
       <span key={attr} className={styles.attrShow}>{data[attr]}</span> : null)
@@ -118,7 +127,10 @@ export default class Expectation extends React.Component {
           </div>
           <div className={styles.fullField}>
             <label className={styles.label}>工作地：</label>
-            <input type="text" className={styles.input}/>
+            <FFlatSelect options={provinces}
+                         value={this.state.province}
+                         onChange={newValue => this.setState({province: newValue})}
+                         placeholder="省"/>
           </div>
           <div className={styles.buttons}>
             <a className={styles.buttonSave}>保存</a>

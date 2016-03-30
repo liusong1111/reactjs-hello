@@ -5,6 +5,6 @@ import styles from './FSelect.css'
 
 export default class FSelect extends React.Component {
   render() {
-    return (<Select clearable={false} searchable={false} {...this.props} />)
+    return (<Select clearable={false} searchable={false} noResultsText={"没有数据"} {...this.props} />)
   }
 }

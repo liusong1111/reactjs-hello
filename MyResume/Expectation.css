@@ -72,6 +72,11 @@
     padding-left: 1em;
 }
 
+.inputSmall {
+    composes: input;
+    width: 5em;
+}
+
 .buttons {
     width: 100%;
     clear: both;

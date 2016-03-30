@@ -1,0 +1,61 @@
+.flatSelect {
+    position: relative;
+    display: inline-block;
+}
+
+:global .hidden {
+    display: none;
+}
+
+.input {
+    width: 12em;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ccc;
+    padding-left: 1em;
+    display: inline-block;
+}
+
+.inputSmall {
+    composes: input;
+    width: 5em;
+}
+
+.flatSelect:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #49bed6 transparent;
+    float: right;
+}
+
+.dropdown {
+    position: absolute;
+    top: 29px;
+    width: 20em;
+    border: 1px solid #ccc;
+    z-index: 2;
+    padding: 10px 4px 4px 4px;
+    background-color: #fff;
+}
+
+.dropdownItem {
+    white-space: nowrap;
+    width: 4em;
+    float: left;
+    height: 3em;
+    line-height: 3em;
+    color: #383838;
+    text-align: center;
+}
+
+.dropdownItem:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
