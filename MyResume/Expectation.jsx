@@ -13,6 +13,7 @@ export default class Expectation extends React.Component {
       mode: 'show'
     }
     this.loadData()
+    this.listAllTech()
   }
 
   render() {
@@ -50,8 +51,19 @@ export default class Expectation extends React.Component {
     </div>)
   }
 
-  handleSelectOne(newValue) {
-    this.setState({zhiwei: newValue})
+  handleSelectToptechValue(newValue) {
+    this.setState({toptechValue: newValue, childtechValue: null})
+  }
+
+  handleSelectChildtechValue(newValue) {
+    this.setState({childtechValue: newValue})
+  }
+
+  async listAllTech() {
+    let response = await fetch("http://www.freekeer.com/freekeer/rest/freekeers/listAlltech")
+    let json = await response.json()
+    let allTech = json.data
+    this.setState({allTech})
   }
 
   renderEdit() {
@@ -66,7 +78,6 @@ export default class Expectation extends React.Component {
       <span key={attr} className={styles.attrShow}>{data[attr]}</span> : null)
     parts = parts.filter(p => p)
     parts = _.interpose(parts, <span className={styles.seperator}>|</span>)
-    let options = [{value: 'one', label:'one'}, {value:'two', label:'two'}];
     return (<div>
       <h3 className={styles.header}>
         求职意向
@@ -75,11 +86,23 @@ export default class Expectation extends React.Component {
         <form action="" method="post">
           <div className={styles.field}>
             <label className={styles.label}>职位类型：</label>
-            <FSelect name="zhiwei" options={options} value={this.state.zhiwei} onChange={this.handleSelectOne.bind(this)} placeholder="请选择技能类型" />
+            <FSelect name="toptechValue"
+                     options={this.state.allTech}
+                     labelKey={"name"}
+                     valueKey={"id"}
+                     value={this.state.toptechValue}
+                     onChange={this.handleSelectToptechValue.bind(this)}
+                     placeholder="请选择职位类型" />
           </div>
           <div className={styles.field}>
             <label className={styles.label}>职位名称：</label>
-            <input type="text" className={styles.input}/>
+            <FSelect name="childtechValue"
+                     options={this.state.toptechValue && this.state.toptechValue.value}
+                     labelKey={"name"}
+                     valueKey={"id"}
+                     value={this.state.childtechValue}
+                     onChange={this.handleSelectChildtechValue.bind(this)}
+                     placeholder="请选择职位名称" />
           </div>
           <div className={styles.field}>
             <label className={styles.label}>最低日薪：</label>
