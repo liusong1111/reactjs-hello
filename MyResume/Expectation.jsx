@@ -1,6 +1,8 @@
 import React from 'react'
 import _ from 'lodash-contrib'
 import styles from './Expectation.css'
+
+import FSelect from '../components/FSelect/FSelect.jsx'
 // http://www.freekeer.com/freekeer/rest/freekeers/queryresumebasic
 // accToken:C-eba74e2457d90bbc496e5834f4e67f851000004
 export default class Expectation extends React.Component {
@@ -60,7 +62,7 @@ export default class Expectation extends React.Component {
       <span key={attr} className={styles.attrShow}>{data[attr]}</span> : null)
     parts = parts.filter(p => p)
     parts = _.interpose(parts, <span className={styles.seperator}>|</span>)
-
+    let options = [{value: 'one', label:'one'}, {value:'two', label:'two'}];
     return (<div>
       <h3 className={styles.header}>
         求职意向
@@ -69,7 +71,7 @@ export default class Expectation extends React.Component {
         <form action="" method="post">
           <div className={styles.field}>
             <label className={styles.label}>职位类型：</label>
-            <input type="text" className={styles.input}/>
+            <FSelect name="zhiwei" options={options} searchable={false} placeholder="请选择技能类型" />
           </div>
           <div className={styles.field}>
             <label className={styles.label}>职位名称：</label>

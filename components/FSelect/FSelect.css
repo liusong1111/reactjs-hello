@@ -1,0 +1,21 @@
+:global .Select {
+    width: 13em;
+    vertical-align: middle;
+    display: inline-block;
+}
+:global .Select, :global .Select-control, :global .Select-input{
+    height: 28px;
+}
+
+:global .Select-control {
+    border-radius: 0;
+}
+
+:global .Select-placeholder {
+    line-height: 28px;
+}
+
+:global .is-focused:not(.is-open) > .Select-control {
+    border-color: #ccc;
+    box-shadow: none;
+}
